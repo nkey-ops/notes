@@ -40,7 +40,7 @@ Determine whether two variables are a part of the same set.
     count array accesses (the num- ber of times an array entry is
     accessed, for read or write).
 
- [[#Union-find implementation]]
+[[#Union-find implementation]]
 
 # Quick Find
 The idea behind Quick Find is to to link every site with 

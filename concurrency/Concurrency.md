@@ -1,20 +1,22 @@
 # Java Concurrency
 src: https://jenkov.com/tutorials/java-concurrency/java-happens-before-guarantee.html
 
-# Volatile | Visibility Guarantee | 
-## Write
+# Visibility Guarantee 
+## Volatile
+### Write
 1. Writes directly into the main memory volatile var.
 2. All writes that happen before "volatile  write" 
     are guaranteed to happen before "volatile write".
 3. All variables visible to the thread 
     will be written back to the main memory.
 
-## Read 
+### Read 
 1. Reads directly from the main memory volatile var.
 2. All reads that happen after "volatile read" 
     are guaranteed to happen after "volatile read".
 3. All variables visible to the thread 
     will be re-read from the main memory.
+
 
 ## Synchronized Block 
 1. When a thread enters a synchronized block, 
@@ -22,21 +24,21 @@ src: https://jenkov.com/tutorials/java-concurrency/java-happens-before-guarantee
 2. When a thread exits a synchronized block, 
     all variables visible to the thread are written back to main memory. 
 
-#### WRITE
+### WRITE
 All writes that happen before "Synchronized Block" 
     are guaranteed to happen before "Synchronized Block".
 
-#### READ
+### READ
 All reads that happen after "Synchronized Block" 
     are guaranteed to happen after "Synchronized Block".
 
 
 # Race Condition | Thread Safety
 ## Read Write Modify
-   Whenever 2 or more threads read shared data then try to make a modification 
-   based on that value and then update it, the last thread that updates the value with 
-   its own modification will overwrite a modification made by the other thread 
-   that updated the value prior to this thread.
+Whenever 2 or more threads read shared data then try to make a modification 
+based on that value and then update it, the last thread that updates the value with 
+its own modification will overwrite a modification made by the other thread 
+that updated the value prior to this thread.
 
 ## Check then act or Slipped Conditions
 Occurs whenever one thread changes the result of the condition  
@@ -277,4 +279,23 @@ a thread environment block, and a user stack in the address space of the thread'
 Threads can also have their own security context, which can be used for impersonating clients.
 
 
+# Anomalies
+Lost Update
+dirty write
+
+
+
+Inter-thread action
+Intra-thread action
+
+sequential consistency
+
+
+
+lost update
+dirty write 
+dirty read 
+non-repeatable read
+phantom read 
+write skew, check than act, slipped condiiton
 
