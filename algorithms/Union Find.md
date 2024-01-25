@@ -36,8 +36,8 @@ whether two given variables are equivalent or no.
 Determine whether two variables are a part of the same set.
 
     Union-find cost model.
-    When studying algorithms to imple- ment the union-find API, we
-    count array accesses (the num- ber of times an array entry is
+    When studying algorithms to implement the union-find API, we
+    count array accesses (the number of times an array entry is
     accessed, for read or write).
 
 [[#Union-find implementation]]
@@ -67,6 +67,7 @@ public void union(int p, int q) {
 }
 ```
 
+n^2 + n^2/2
 
 ## Proposition F 
 The quick-find algorithm uses one array access for each call to
@@ -89,7 +90,7 @@ This way we'll get a chain of sites that lead to it's ultimate component
 identifier if we try to perform the find operation
 
     Find:  Ώ (1), O(n)
-    Union: Ώ (2), O(2n + 1)
+    Union: Ώ (1), O(N * (N - 1))
 
 ```java
 private int find(int p) { 
@@ -101,13 +102,19 @@ private int find(int p) {
 }
 public void union(int p, int q) { 
   // Give p and q the same root.
+  if(p == q ) return;
+
   int pRoot = find(p);
   int qRoot = find(q);
+
   if (pRoot == qRoot) return;
   id[pRoot] = qRoot;
   count--;
 }
 ```
+
+n^2 + n^2/2
+
 
 ## Proposition G 
 The number of array accesses used by find() in quick-union is 1
@@ -161,7 +168,7 @@ node on the path from a node to a root in the forest.
 | quick-union          |      N       | tree height | tree height|
 | weighted quick-union |      N       | lg N        | lg N       |   
 | weighted quick-union |      N       | very, very nearly, but   | 
-  with path compresson                | not quite 1 (amortized ) |
+| with path compresson                | not quite 1 (amortized ) |
 | impossible           |      N       | 1           |   1        |
 
 
